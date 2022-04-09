@@ -9,8 +9,12 @@
 	align-items: center;
 
 	.greeting-message {
+		text-align: center;
 		font-size: 3rem;
 		color: $color-primary-1;
+		@media (min-width: $sm) {
+			font-size: 4.5rem;
+		}
 	}
 
 	.start-btn-container {
