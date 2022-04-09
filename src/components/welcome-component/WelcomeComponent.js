@@ -4,7 +4,8 @@ import './WelcomeComponent.scss'
 const WelcomeComponent = () => {
 	return (
 		<div className="welcome-component">
-			WelcomeComponent
+			<h3 className="greeting-message">Welcome to the quiz!</h3>
+			
 		</div>
 	)
 }

@@ -1,7 +1,13 @@
 @import '../../styles/variables.scss';
 
 .welcome-component {
-	background-color: green;
 	width: 100%;
 	min-height: 100%;
+	display: flex;
+	justify-content: space-around;
+
+	h3 {
+		font-size: 3rem;
+		color: $color-primary-1;
+	}
 }
