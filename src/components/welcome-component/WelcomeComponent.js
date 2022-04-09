@@ -7,7 +7,7 @@ const WelcomeComponent = (props) => {
 		<div className="welcome-component">
 			<h3 className="greeting-message">Welcome!</h3>
 			<div className="start-btn-container">
-				<ButtonComponent text="Choose Quiz" handleClick={props.selectQuizClick}/>
+				<ButtonComponent text="Select Quiz" handleClick={props.selectQuizClick}/>
 			</div>
 		</div>
 	)
