@@ -7,7 +7,7 @@ import SelectQuizForm from '../select-quiz-form/SelectQuizForm'
 
 const App = () => {
 
-	const [selectingQuiz, setSelectingQuiz] = useState(false)
+	const [selectingQuiz, setSelectingQuiz] = useState(true)
 
 	const toggleQuizSelection = () => {
 		setSelectingQuiz(!selectingQuiz)
