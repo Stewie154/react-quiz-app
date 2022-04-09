@@ -4,7 +4,7 @@ import '../../styles/global.scss'
 
 const App = () => {
 	return (
-		<div className='app'>
+		<div className='app-container'>
 			Hello world
 		</div>
 	)

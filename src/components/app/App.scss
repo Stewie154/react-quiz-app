@@ -1,5 +1,8 @@
 @import '../../styles/variables.scss';
 
-.app {
-	background-color: $background-color;
+.app-container {
+	background-color: $container-background-color;
+	width: 100vw;
+	max-width: 800px;
+	min-height: 600px;
 }
