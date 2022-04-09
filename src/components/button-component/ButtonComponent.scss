@@ -10,4 +10,10 @@
 	border: 1px solid $color-black;
 	border-radius: 25px;
 	font-size: 2rem;
+	transition: 0.3s ease-in-out;
+
+	&:hover {
+		color: $color-black;
+		background-color: $color-primary-2;
+	}
 }
