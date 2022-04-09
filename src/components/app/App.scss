@@ -11,6 +11,14 @@
 	.main-title {
 		text-align: center;
 		font-size: 3rem;
+		padding-bottom: 2rem;
+		color: $color-primary-2;
+		@media (min-width: $sm) {
+			font-size: 4rem;
+		}
+		@media (min-width: $lg) {
+			font-size: 6rem;
+		}
 	}
 
 	.app-container {
