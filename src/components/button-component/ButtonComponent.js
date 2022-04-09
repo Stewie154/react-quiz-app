@@ -1,8 +1,9 @@
 import React from 'react'
+import './ButtonComponent.scss'
 
 const ButtonComponent = (props) => {
 	return (
-		<button>
+		<button className="button-component">
 			{props.text}
 		</button>
 	)
