@@ -19,8 +19,8 @@ const App = () => {
 		<div className="wrapper">
 			<h1 className="main-title">Quiz App</h1>
 			<div className='app-container'>
-				<WelcomeComponent  selectQuizClick={toggleQuizSelection}/>
-				<SelectQuizForm />
+				{!selectingQuiz && <WelcomeComponent  selectQuizClick={toggleQuizSelection}/>}
+				{selectingQuiz && <SelectQuizForm />}
 			</div>
 		</div>
 		
