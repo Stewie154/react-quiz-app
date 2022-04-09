@@ -1,8 +1,11 @@
 import React from 'react'
+import './WelcomeComponent.scss'
 
 const WelcomeComponent = () => {
 	return (
-		<div>WelcomeComponent</div>
+		<div className="welcome-component">
+			WelcomeComponent
+		</div>
 	)
 }
 
