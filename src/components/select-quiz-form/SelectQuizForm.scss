@@ -1,1 +1,14 @@
 @import '../../styles/variables.scss';
+
+.header {
+	font-size: 3rem;
+	text-align: center;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 100%;
+}
