@@ -1,9 +1,21 @@
 @import '../../styles/variables.scss';
 
-.app-container {
-	background-color: $color-primary-2;
+.wrapper {
 	width: 100%;
-	max-width: 800px;
-	min-height: 600px;
-	margin: 0 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	
+	.app-container {
+		background-color: $color-primary-2;
+		width: 100%;
+		max-width: 800px;
+		min-height: 600px;
+		margin: 0 10px;
+	
+		.main-title {
+			text-align: center;
+		}
+	}
 }
