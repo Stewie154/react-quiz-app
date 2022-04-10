@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './SelectQuizForm.scss'
+import questionsApiCall from '../../api/openTDB'
 import ButtonComponent from '../button-component/ButtonComponent'
 
 const SelectQuizForm = () => {
@@ -17,6 +18,11 @@ const SelectQuizForm = () => {
 			}
 		)
 		console.log(submittedQuizInfo)
+		retrieveQuiz()
+	}
+
+	const retrieveQuiz = () => {
+		questionsApiCall(submittedQuizInfo);
 	}
 
 	return (
