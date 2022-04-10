@@ -5,10 +5,14 @@ import ButtonComponent from '../button-component/ButtonComponent'
 
 const SelectQuizForm = () => {
 
-	const [submittedQuizInfo, setSubmittedQuizInfo] = useState({})
+	const [submittedQuizInfo, setSubmittedQuizInfo] = useState(null)
 
 	useEffect(() => {
-		retrieveQuiz()
+
+		if(submittedQuizInfo) {
+			retrieveQuiz()
+		}
+
 	},[submittedQuizInfo])
 
 	const handleSubmission = (event) => {
