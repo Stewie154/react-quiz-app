@@ -7,7 +7,7 @@ const SelectQuizForm = () => {
 			<h3 className="header">Quiz Selection</h3>
 			<form>
 				<div className="form-group">
-					<label>Number of Questions</label>
+					<label>Number of Questions:</label>
 					<input 
 						className="form-element" 
 						type="number" 
