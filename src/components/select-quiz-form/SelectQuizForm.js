@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SelectQuizForm.scss'
 import ButtonComponent from '../button-component/ButtonComponent'
 
 const SelectQuizForm = () => {
 
+	const [submittedQuizInfo, setSubmittedQuizInfo] = useState({})
+
 	const handleSubmission = (event) => {
 		event.preventDefault()
-		console.log('form submitted')
+		setSubmittedQuizInfo(
+			{
+				no_of_questions: event.target[0].value,
+				trivia_category: event.target[1].value,
+				trivia_difficulty: event.target[2].value,
+				trivia_type: event.target[3].value,
+			}
+		)
+		console.log(submittedQuizInfo)
 	}
 
 	return (
