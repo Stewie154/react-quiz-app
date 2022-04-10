@@ -30,8 +30,7 @@ const App = () => {
 			<h1 className="main-title">Quiz App</h1>
 			<div className='app-container'>
 				{welcomeScreen  && <WelcomeComponent  selectQuizClick={toggleQuizSelection}/>}
-				{
-					selectingQuiz && 
+				{selectingQuiz && 
 					<SelectQuizForm 
 						toggleQuizSelection={toggleQuizSelection} 
 						toggleIsLoading={toggleIsLoading}
