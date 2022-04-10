@@ -12,7 +12,7 @@ const SelectQuizForm = () => {
 	return (
 		<>
 			<h3 className="header">Quiz Selection</h3>
-			<form>
+			<form onSubmit={(event) => handleSubmission(event)}>
 				<div className="form-group">
 					<label>Number of Questions:</label>
 					<input 
@@ -80,8 +80,7 @@ const SelectQuizForm = () => {
 					</select>
 				</div>
 				<div className="form-group">
-					<ButtonComponent submitBtn text="Start Quiz" onClick={(event) => handleSubmission(event)}/>
-					{/* <button type='submit' onClick={(event) => handleSubmission(event)}>Get Quiz</button> */}
+					<ButtonComponent submitBtn text="Start Quiz"/>
 				</div>
 
 			</form>
