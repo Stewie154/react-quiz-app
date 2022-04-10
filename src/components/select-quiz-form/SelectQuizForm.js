@@ -49,6 +49,18 @@ const SelectQuizForm = () => {
 						<option value="32">Entertainment: Cartoon &amp; Animations</option>
 					</select>
 				</div>
+				<div className="form-group">
+					<label>Select Difficulty</label>
+					<select 
+						className="form-element" 
+						name="trivia_difficulty" 
+					>
+						<option value="any">Any Difficulty</option>
+						<option value="easy">Easy</option>
+						<option value="medium">Medium</option>
+						<option value="hard">Hard</option>
+					</select>
+				</div>
 			</form>
 		</>
 		
