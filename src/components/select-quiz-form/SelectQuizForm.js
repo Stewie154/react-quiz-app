@@ -3,7 +3,7 @@ import './SelectQuizForm.scss'
 import questionsApiCall from '../../api/openTDB'
 import ButtonComponent from '../button-component/ButtonComponent'
 
-const SelectQuizForm = () => {
+const SelectQuizForm = (props) => {
 
 	const [submittedQuizInfo, setSubmittedQuizInfo] = useState(null)
 
@@ -30,6 +30,7 @@ const SelectQuizForm = () => {
 
 	const retrieveQuiz = () => {
 		questionsApiCall(submittedQuizInfo);
+		props.toggleIsLoading()
 	}
 
 	return (
