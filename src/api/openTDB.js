@@ -8,6 +8,7 @@
 		return response.data.results
 	}
 	else {
+		console.log(response.data.response_code)
 		return response.data.response_code
 	}
 
