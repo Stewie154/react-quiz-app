@@ -16,6 +16,16 @@ const SelectQuizForm = () => {
 						max="50"
 					/>
 				</div>
+				<div className="form-group">
+					<label>Number of Questions:</label>
+					<input 
+						className="form-element" 
+						type="number" 
+						name="no_of_questions" 
+						min="5" 
+						max="50"
+					/>
+				</div>
 			</form>
 		</>
 		
