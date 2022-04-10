@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './SelectQuizForm.scss'
 import questionsApiCall from '../../api/openTDB'
 import ButtonComponent from '../button-component/ButtonComponent'
@@ -6,6 +6,10 @@ import ButtonComponent from '../button-component/ButtonComponent'
 const SelectQuizForm = () => {
 
 	const [submittedQuizInfo, setSubmittedQuizInfo] = useState({})
+
+	useEffect(() => {
+		retrieveQuiz()
+	},[submittedQuizInfo])
 
 	const handleSubmission = (event) => {
 		event.preventDefault()
@@ -18,7 +22,7 @@ const SelectQuizForm = () => {
 			}
 		)
 		console.log(submittedQuizInfo)
-		retrieveQuiz()
+		
 	}
 
 	const retrieveQuiz = () => {
