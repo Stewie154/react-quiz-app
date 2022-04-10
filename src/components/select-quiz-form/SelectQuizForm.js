@@ -1,7 +1,14 @@
 import React from 'react'
 import './SelectQuizForm.scss'
+import ButtonComponent from '../button-component/ButtonComponent'
 
 const SelectQuizForm = () => {
+
+	const handleSubmission = (event) => {
+		event.preventDefault()
+		console.log('form submitted')
+	}
+
 	return (
 		<>
 			<h3 className="header">Quiz Selection</h3>
@@ -72,6 +79,11 @@ const SelectQuizForm = () => {
 						<option value="boolean">True / False</option>
 					</select>
 				</div>
+				<div className="form-group">
+					<ButtonComponent submitBtn text="Start Quiz" onClick={(event) => handleSubmission(event)}/>
+					{/* <button type='submit' onClick={(event) => handleSubmission(event)}>Get Quiz</button> */}
+				</div>
+
 			</form>
 		</>
 		
