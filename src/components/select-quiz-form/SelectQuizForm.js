@@ -61,6 +61,17 @@ const SelectQuizForm = () => {
 						<option value="hard">Hard</option>
 					</select>
 				</div>
+				<div className="form-group">
+					<label>Select Type</label>
+					<select 
+						className="form-element" 
+						name="trivia_type" 
+					>
+						<option value="any">Any Type</option>
+						<option value="multiple">Multiple Choose</option>
+						<option value="boolean">True / False</option>
+					</select>
+				</div>
 			</form>
 		</>
 		
