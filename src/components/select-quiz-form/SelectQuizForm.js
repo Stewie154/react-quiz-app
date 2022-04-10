@@ -21,6 +21,7 @@ const SelectQuizForm = () => {
 						name="no_of_questions" 
 						min="5" 
 						max="50"
+						defaultValue="10"
 					/>
 				</div>
 				<div className="form-group">
