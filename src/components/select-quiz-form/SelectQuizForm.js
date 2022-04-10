@@ -55,7 +55,6 @@ const SelectQuizForm = (props) => {
 						className="form-element" 
 						name="trivia_category" 
 					>
-						<option value="any">Any Category</option>
 						<option value="9">General Knowledge</option>
 						<option value="10">Entertainment: Books</option>
 						<option value="11">Entertainment: Film</option>
@@ -88,7 +87,6 @@ const SelectQuizForm = (props) => {
 						className="form-element" 
 						name="trivia_difficulty" 
 					>
-						<option value="any">Any Difficulty</option>
 						<option value="easy">Easy</option>
 						<option value="medium">Medium</option>
 						<option value="hard">Hard</option>
@@ -100,7 +98,6 @@ const SelectQuizForm = (props) => {
 						className="form-element" 
 						name="trivia_type" 
 					>
-						<option value="any">Any Type</option>
 						<option value="multiple">Multiple Choose</option>
 						<option value="boolean">True / False</option>
 					</select>
