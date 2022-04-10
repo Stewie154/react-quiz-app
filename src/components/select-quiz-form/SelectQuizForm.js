@@ -25,7 +25,6 @@ const SelectQuizForm = () => {
 				trivia_type: event.target[3].value,
 			}
 		)
-		console.log(submittedQuizInfo)
 		
 	}
 
