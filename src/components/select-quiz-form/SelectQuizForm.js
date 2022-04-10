@@ -30,6 +30,7 @@ const SelectQuizForm = (props) => {
 
 	const retrieveQuiz = () => {
 		questionsApiCall(submittedQuizInfo);
+		props.toggleQuizSelection()
 		props.toggleIsLoading()
 	}
 

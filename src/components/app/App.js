@@ -7,17 +7,20 @@ import SelectQuizForm from '../select-quiz-form/SelectQuizForm'
 import LoadingSpinner from '../loading-spinner/LoadingSpinner'
 
 const App = () => {
-
+	const [welcomeScreen, setWelcomeScreen] = useState(true)
 	const [selectingQuiz, setSelectingQuiz] = useState(false)
 	const [isLoading, setIsLoading] = useState(false)
+	
 
 	const toggleIsLoading = () => {
 		setIsLoading(!isLoading)
 	}
 
 	const toggleQuizSelection = () => {
+		if (welcomeScreen) {
+			setWelcomeScreen(false)
+		}
 		setSelectingQuiz(!selectingQuiz)
-		console.log(selectingQuiz)
 	}
 
 
@@ -25,8 +28,8 @@ const App = () => {
 		<div className="wrapper">
 			<h1 className="main-title">Quiz App</h1>
 			<div className='app-container'>
-				{!selectingQuiz && <WelcomeComponent  selectQuizClick={toggleQuizSelection}/>}
-				{selectingQuiz && <SelectQuizForm toggleIsLoading={toggleIsLoading}/>}
+				{welcomeScreen  && <WelcomeComponent  selectQuizClick={toggleQuizSelection}/>}
+				{selectingQuiz && <SelectQuizForm toggleQuizSelection={toggleQuizSelection} toggleIsLoading={toggleIsLoading}/>}
 				{isLoading && <LoadingSpinner />}
 			</div>
 		</div>
