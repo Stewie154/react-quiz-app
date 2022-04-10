@@ -2,9 +2,15 @@
 
  const questionsApiCall = async (submittedQuizInfo) => {
 	const url = `https://opentdb.com/api.php?amount=${submittedQuizInfo.no_of_questions}&category=${submittedQuizInfo.trivia_category}&difficulty=${submittedQuizInfo.trivia_difficulty}&type=${submittedQuizInfo.trivia_type}`
-	console.log(url)
 	const response = await axios.get(url)
-	console.log(response.data.results)
+	if (response.data.response_code == 0) {
+		console.log(response.data.results)
+		return response.data.results
+	}
+	else {
+		return response.data.response_code
+	}
+
  }
 
  export default questionsApiCall
