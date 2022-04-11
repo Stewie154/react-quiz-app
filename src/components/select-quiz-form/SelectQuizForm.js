@@ -29,6 +29,8 @@ const SelectQuizForm = (props) => {
 	}
 
 	const retrieveQuiz = async () => {
+		props.toggleQuizSelection()
+		props.toggleIsLoading()
 		await questionsApiCall(submittedQuizInfo)
 			.then(response => {
 				if (response == 1) {
@@ -38,9 +40,7 @@ const SelectQuizForm = (props) => {
 					console.log('call successful')
 				}
 			});
-		
-		// props.toggleQuizSelection()
-		// props.toggleIsLoading()
+	
 	}
 
 	return (
