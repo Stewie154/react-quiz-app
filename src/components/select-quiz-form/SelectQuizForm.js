@@ -28,19 +28,25 @@ const SelectQuizForm = (props) => {
 		
 	}
 
+	const handleApiFailure = () => {
+		console.log('function called')
+	}
+
+	
+
 	const retrieveQuiz = async () => {
 		props.toggleQuizSelection()
 		props.toggleIsLoading()
 		await questionsApiCall(submittedQuizInfo)
-			.then(response => {
-				if (response == 1) {
-					console.log('call failed')
+			.then(res => {
+				console.log(res)
+				if(res === 1) {
+					handleApiFailure()
 				}
 				else {
 					console.log('call successful')
 				}
-			});
-	
+			})
 	}
 
 	return (

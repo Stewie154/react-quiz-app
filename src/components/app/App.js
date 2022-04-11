@@ -39,8 +39,10 @@ const App = () => {
 				{selectingQuiz && 
 					<SelectQuizForm 
 						toggleQuizSelection={toggleQuizSelection} 
+						isLoading={isLoading}
 						toggleIsLoading={toggleIsLoading}
 						setQuestionsData={setQuestionsData}
+						toggleUserResubmitting={setUserResubmitting}
 					/>
 				}
 				{userResubmitting && <ResubmitComponent toggleUserResubmitting={toggleUserResubmitting} />}
