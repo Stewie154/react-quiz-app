@@ -28,10 +28,19 @@ const SelectQuizForm = (props) => {
 		
 	}
 
-	const retrieveQuiz = () => {
-		questionsApiCall(submittedQuizInfo);
-		props.toggleQuizSelection()
-		props.toggleIsLoading()
+	const retrieveQuiz = async () => {
+		await questionsApiCall(submittedQuizInfo)
+			.then(response => {
+				if (response == 1) {
+					console.log('call failed')
+				}
+				else {
+					console.log('call successful')
+				}
+			});
+		
+		// props.toggleQuizSelection()
+		// props.toggleIsLoading()
 	}
 
 	return (
