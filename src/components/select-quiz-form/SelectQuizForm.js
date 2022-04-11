@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react'
 import './SelectQuizForm.scss'
 import questionsApiCall from '../../api/openTDB'
 import ButtonComponent from '../button-component/ButtonComponent'
+import ResubmitComponent from '../resubmit-component/ResubmitComponent'
+
 
 const SelectQuizForm = (props) => {
 
 	const [submittedQuizInfo, setSubmittedQuizInfo] = useState(null)
+	const [userResubmitting, setUserResubmitting] = useState(false)
 
 	useEffect(() => {
 
@@ -28,11 +31,13 @@ const SelectQuizForm = (props) => {
 		
 	}
 
+	const toggleUserResubmitting = () => {
+		setUserResubmitting(!userResubmitting)
+	}
+
 	const handleApiFailure = () => {
 		console.log('function called')
 	}
-
-	
 
 	const retrieveQuiz = async () => {
 		props.toggleQuizSelection()
@@ -122,6 +127,7 @@ const SelectQuizForm = (props) => {
 				</div>
 
 			</form>
+			{userResubmitting && <ResubmitComponent toggleUserResubmitting={toggleUserResubmitting} />}
 		</>
 		
 	)

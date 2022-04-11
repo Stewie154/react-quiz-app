@@ -5,13 +5,11 @@ import '../../styles/global.scss'
 import WelcomeComponent from '../welcome-component/WelcomeComponent'
 import SelectQuizForm from '../select-quiz-form/SelectQuizForm'
 import LoadingSpinner from '../loading-spinner/LoadingSpinner'
-import ResubmitComponent from '../resubmit-component/ResubmitComponent'
 
 const App = () => {
 	const [welcomeScreen, setWelcomeScreen] = useState(true)
 	const [selectingQuiz, setSelectingQuiz] = useState(false)
 	const [isLoading, setIsLoading] = useState(false)
-	const [userResubmitting, setUserResubmitting] = useState(false)
 	const [questionsData, setQuestionsData] = useState([])
 	
 
@@ -26,9 +24,6 @@ const App = () => {
 		setSelectingQuiz(!selectingQuiz)
 	}
 
-	const toggleUserResubmitting = () => {
-		setUserResubmitting(!userResubmitting)
-	}
 
 
 	return (
@@ -42,10 +37,8 @@ const App = () => {
 						isLoading={isLoading}
 						toggleIsLoading={toggleIsLoading}
 						setQuestionsData={setQuestionsData}
-						toggleUserResubmitting={setUserResubmitting}
 					/>
 				}
-				{userResubmitting && <ResubmitComponent toggleUserResubmitting={toggleUserResubmitting} />}
 				{isLoading && <LoadingSpinner />}
 			</div>
 		</div>
