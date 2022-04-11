@@ -98,7 +98,7 @@ const SelectQuizForm = (props) => {
 						className="form-element" 
 						name="trivia_type" 
 					>
-						<option value="multiple">Multiple Choose</option>
+						<option value="multiple">Multiple Choice</option>
 						<option value="boolean">True / False</option>
 					</select>
 				</div>
