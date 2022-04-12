@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './App.scss'
 import '../../styles/global.scss'
 
@@ -11,6 +11,14 @@ const App = () => {
 	const [selectingQuiz, setSelectingQuiz] = useState(false)
 	const [isLoading, setIsLoading] = useState(false)
 	const [questionsData, setQuestionsData] = useState([])
+	const [gameOn, setGameOn] = useState(false)
+
+	useEffect(() => {
+		if(questionsData !== []) {
+			setGameOn(!gameOn)
+			console.log(questionsData, gameOn)
+		}
+	}, [questionsData])
 	
 
 	const toggleIsLoading = () => {
@@ -40,6 +48,7 @@ const App = () => {
 					/>
 				}
 				{isLoading && <LoadingSpinner />}
+				
 			</div>
 		</div>
 		

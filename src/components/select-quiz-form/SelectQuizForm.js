@@ -49,7 +49,7 @@ const SelectQuizForm = (props) => {
 					handleApiFailure()
 				}
 				else {
-					console.log('call successful')
+					props.setQuestionsData(res)
 				}
 			})
 	}
