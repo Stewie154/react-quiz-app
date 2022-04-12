@@ -14,6 +14,14 @@ const App = () => {
 	const [questionsData, setQuestionsData] = useState([])
 	const [gameOn, setGameOn] = useState(false)
 
+
+	useEffect(() => {
+		if (gameOn) {
+			toggleIsLoading()
+		}
+		
+	}, [gameOn])
+
 	const startGame = (questions) => {
 		setQuestionsData(questions)
 		setGameOn(true)
