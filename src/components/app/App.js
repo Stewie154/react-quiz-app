@@ -5,11 +5,13 @@ import '../../styles/global.scss'
 import WelcomeComponent from '../welcome-component/WelcomeComponent'
 import SelectQuizForm from '../select-quiz-form/SelectQuizForm'
 import LoadingSpinner from '../loading-spinner/LoadingSpinner'
+import ResubmitComponent from '../resubmit-component/ResubmitComponent'
 import GameComponent from '../game-component/GameComponent'
 
 const App = () => {
 	const [welcomeScreen, setWelcomeScreen] = useState(true)
 	const [selectingQuiz, setSelectingQuiz] = useState(false)
+	const [userResubmitting, setUserResubmitting] = useState(false)
 	const [isLoading, setIsLoading] = useState(false)
 	const [questionsData, setQuestionsData] = useState([])
 	const [gameOn, setGameOn] = useState(false)
@@ -27,7 +29,6 @@ const App = () => {
 		setGameOn(true)
 	}
 	
-
 	const toggleIsLoading = () => {
 		setIsLoading(!isLoading)
 	}
@@ -37,6 +38,10 @@ const App = () => {
 			setWelcomeScreen(false)
 		}
 		setSelectingQuiz(!selectingQuiz)
+	}
+
+	const toggleUserResubmitting = () => {
+		setUserResubmitting(!userResubmitting)
 	}
 
 
@@ -52,8 +57,10 @@ const App = () => {
 						isLoading={isLoading}
 						toggleIsLoading={toggleIsLoading}
 						startGame={startGame}
+						toggleUserResubmitting={toggleUserResubmitting}
 					/>
 				}
+				{userResubmitting && <ResubmitComponent toggleUserResubmitting={toggleUserResubmitting}/>}
 				{isLoading && <LoadingSpinner />}
 				{gameOn && <GameComponent />}
 			</div>
