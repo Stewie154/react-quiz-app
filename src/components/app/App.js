@@ -18,11 +18,11 @@ const App = () => {
 
 
 	useEffect(() => {
-		if (gameOn) {
+		if (gameOn || userResubmitting) {
 			toggleIsLoading()
 		}
 		
-	}, [gameOn])
+	}, [gameOn, userResubmitting])
 
 	const startGame = (questions) => {
 		setQuestionsData(questions)
