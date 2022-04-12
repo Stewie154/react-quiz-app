@@ -16,6 +16,7 @@ const App = () => {
 	useEffect(() => {
 		if(questionsData !== []) {
 			setGameOn(!gameOn)
+			toggleIsLoading()
 			console.log(questionsData, gameOn)
 		}
 	}, [questionsData])
@@ -48,7 +49,6 @@ const App = () => {
 					/>
 				}
 				{isLoading && <LoadingSpinner />}
-				
 			</div>
 		</div>
 		
