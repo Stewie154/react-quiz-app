@@ -44,12 +44,11 @@ const SelectQuizForm = (props) => {
 		props.toggleIsLoading()
 		await questionsApiCall(submittedQuizInfo)
 			.then(res => {
-				console.log(res)
 				if(res === 1) {
 					handleApiFailure()
 				}
 				else {
-					props.setQuestionsData(res)
+					props.startGame(res)
 				}
 			})
 	}

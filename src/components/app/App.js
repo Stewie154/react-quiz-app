@@ -5,6 +5,7 @@ import '../../styles/global.scss'
 import WelcomeComponent from '../welcome-component/WelcomeComponent'
 import SelectQuizForm from '../select-quiz-form/SelectQuizForm'
 import LoadingSpinner from '../loading-spinner/LoadingSpinner'
+import GameComponent from '../game-component/GameComponent'
 
 const App = () => {
 	const [welcomeScreen, setWelcomeScreen] = useState(true)
@@ -13,13 +14,10 @@ const App = () => {
 	const [questionsData, setQuestionsData] = useState([])
 	const [gameOn, setGameOn] = useState(false)
 
-	useEffect(() => {
-		if(questionsData !== []) {
-			setGameOn(!gameOn)
-			toggleIsLoading()
-			console.log(questionsData, gameOn)
-		}
-	}, [questionsData])
+	const startGame = (questions) => {
+		setQuestionsData(questions)
+		setGameOn(true)
+	}
 	
 
 	const toggleIsLoading = () => {
@@ -45,10 +43,11 @@ const App = () => {
 						toggleQuizSelection={toggleQuizSelection} 
 						isLoading={isLoading}
 						toggleIsLoading={toggleIsLoading}
-						setQuestionsData={setQuestionsData}
+						startGame={startGame}
 					/>
 				}
 				{isLoading && <LoadingSpinner />}
+				{gameOn && <GameComponent />}
 			</div>
 		</div>
 		
