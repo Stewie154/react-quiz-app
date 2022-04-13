@@ -19,7 +19,7 @@ const App = () => {
 
 	useEffect(() => {
 		if (gameOn || userResubmitting) {
-			toggleIsLoading()
+			setIsLoading(false)
 		}
 		
 	}, [gameOn, userResubmitting])
@@ -64,6 +64,8 @@ const App = () => {
 					<ResubmitComponent 
 						toggleQuizSelection={toggleQuizSelection} 
 						toggleUserResubmitting={toggleUserResubmitting}
+						startGame={startGame}
+						toggleIsLoading={toggleIsLoading}
 					/>
 				}
 				{isLoading && <LoadingSpinner />}
