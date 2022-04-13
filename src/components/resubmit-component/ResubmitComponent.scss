@@ -6,9 +6,17 @@
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+
 	h1 {
 		color: $color-primary-1;
 		text-align: center;
 		font-size: 3rem;
+	}
+
+	.actions-container {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 1.5rem;
+		padding: 0 1.5rem;
 	}
 }
