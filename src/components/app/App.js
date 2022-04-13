@@ -60,7 +60,12 @@ const App = () => {
 						toggleUserResubmitting={toggleUserResubmitting}
 					/>
 				}
-				{userResubmitting && <ResubmitComponent toggleUserResubmitting={toggleUserResubmitting}/>}
+				{userResubmitting && 
+					<ResubmitComponent 
+						toggleQuizSelection={toggleQuizSelection} 
+						toggleUserResubmitting={toggleUserResubmitting}
+					/>
+				}
 				{isLoading && <LoadingSpinner />}
 				{gameOn && <GameComponent questions={questionsData}/>}
 			</div>
