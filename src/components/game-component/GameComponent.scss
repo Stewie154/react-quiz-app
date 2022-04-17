@@ -1,3 +1,9 @@
+@import '../../styles/variables.scss';
+
+
 .game-component {
-	
+	.question {
+		text-align: center;
+		color: $color-black;
+	}
 }

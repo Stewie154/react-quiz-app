@@ -1,16 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import './GameComponent.scss'
 
 const GameComponent = (props) => {
 
-const questions = props.questions.map(question => {
-	console.log(question)
-	return (
-		<p>{question.question}</p>
-	)
-})
+	const [currentQuestion, setCurrentQuestion] = useState(props.questions[0])
+
+	console.log(currentQuestion)
 
 return (
-	<div>{questions}</div>
+	<div className="game-component">
+		<h1 className="question">{currentQuestion.question}</h1>
+	</div>
 )
 }
 
