@@ -8,6 +8,7 @@ const GameComponent = (props) => {
 
 	const [currentQuestion, setCurrentQuestion] = useState()
 	const [questionIndex, setQuestionIndex] = useState(0)
+	const [answers, setAnswers] = useState([])
 
 	useEffect(() => {
 		setCurrentQuestion(props.questions[0])
@@ -20,9 +21,20 @@ const GameComponent = (props) => {
 		console.log(questionIndex)
 	}
 
+	const updateAnswers = () => {
+		let answersArray = []
+		
+		currentQuestion.incorrect_answers.forEach(incorrect_answer => {
+			answersArray.push(incorrect_answer)
+		});
+		answersArray.push(currentQuestion.correct_answer)
+		answersArray.sort(() => Math.random() - 0.5)
+		setAnswers(answersArray)
+	}
+
 	console.log(currentQuestion)
 
-	const answers = currentQuestion && currentQuestion.incorrect_answers.map((answer) => <ButtonComponent text={answer} handleClick={updateQuestionIndex}/>)
+	const answerButtons = currentQuestion && currentQuestion.incorrect_answers.map((answer) => <ButtonComponent text={answer} handleClick={updateAnswers}/>)
 
 return (
 	<div className="game-component">
@@ -30,7 +42,7 @@ return (
 		<h1></h1>
 		<h1 className="question">{currentQuestion && currentQuestion.question}</h1>
 		<main className="answers-grid">
-			{answers}
+			{answerButtons}
 		</main>
 	</div>
 )
