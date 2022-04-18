@@ -18,7 +18,7 @@ const GameComponent = ({ questions }) => {
 	},[currentQuestion, questionIndex])
 
 	const updateQuestionIndex = () => {
-		if(questionIndex < questions.length) {
+		if(questionIndex < questions.length - 1) {
 			setQuestionIndex(questionIndex + 1)
 		}
 		console.log(questionIndex)
@@ -34,9 +34,9 @@ const GameComponent = ({ questions }) => {
 		setAnswers(answersArray)
 	}
 
-	console.log(questions)
+	// console.log(questions)
 
-	const answerButtons = answers !== [] && answers.map((answer) => <ButtonComponent text={answer}/>)
+	const answerButtons = answers !== [] && answers.map((answer) => <ButtonComponent text={answer} handleClick={updateQuestionIndex}/>)
 
 return (
 	<>
