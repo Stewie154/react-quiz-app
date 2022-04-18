@@ -72,7 +72,7 @@ return (
 				</main>
 				{nextButton && 
 					<div className="next-btn-container">
-						<ButtonComponent text="Next Question" handleClick={updateCurrentQuestion}/>
+						<ButtonComponent classes="red " text="Next Question" handleClick={updateCurrentQuestion}/>
 					</div>
 				}
 			</div>
