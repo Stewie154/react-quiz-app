@@ -12,6 +12,9 @@ const GameComponent = (props) => {
 
 	useEffect(() => {
 		setCurrentQuestion(props.questions[0])
+		if (currentQuestion != null) {
+			groupAnswers()
+		}
 	},[currentQuestion, questionIndex])
 
 	const updateQuestionIndex = () => {
@@ -33,18 +36,24 @@ const GameComponent = (props) => {
 
 	console.log(currentQuestion)
 
-	const answerButtons = currentQuestion && currentQuestion.incorrect_answers.map((answer) => <ButtonComponent text={answer} handleClick={groupAnswers}/>)
+	const answerButtons = answers != [] && answers.map((answer) => <ButtonComponent text={answer}/>)
 
 return (
-	<div className="game-component">
+	<>
 		{!currentQuestion && <LoadingSpinner />}
-		<h1></h1>
-		<h1 className="question">{currentQuestion && currentQuestion.question}</h1>
-		<main className="answers-grid">
-			{answerButtons}
-			{console.log(answers)}
-		</main>
-	</div>
+		{currentQuestion &&
+			<div className="game-component">
+				<h1></h1>
+				<h1 className="question">{currentQuestion && currentQuestion.question}</h1>
+				<main className="answers-grid">
+					{answerButtons}
+					{console.log(answers)}
+				</main>
+			</div>
+		}
+		
+	</>
+	
 )
 }
 
