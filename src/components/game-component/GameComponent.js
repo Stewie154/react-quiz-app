@@ -11,14 +11,15 @@ const GameComponent = ({ questions }) => {
 	const [answers, setAnswers] = useState([])
 
 	useEffect(() => {
-		setCurrentQuestion(questions[0])
+		setCurrentQuestion(questions[questionIndex])
 		if (currentQuestion != null) {
 			groupAnswers()
 		}
 	},[currentQuestion, questionIndex])
 
 	const updateQuestionIndex = () => {
-		if(questionIndex < questions.length - 1) {
+		
+		if (questionIndex < questions.length - 1) {
 			setQuestionIndex(questionIndex + 1)
 		}
 		console.log(questionIndex)
@@ -34,9 +35,15 @@ const GameComponent = ({ questions }) => {
 		setAnswers(answersArray)
 	}
 
+	const updateCurrentQuestion = () => {
+		updateQuestionIndex()
+		setCurrentQuestion(questions[questionIndex])
+		groupAnswers()
+	}
+
 	// console.log(questions)
 
-	const answerButtons = answers !== [] && answers.map((answer) => <ButtonComponent text={answer} handleClick={updateQuestionIndex}/>)
+	const answerButtons = answers !== [] && answers.map((answer, index) => <ButtonComponent key={index} text={answer} handleClick={updateCurrentQuestion}/>)
 
 return (
 	<>
