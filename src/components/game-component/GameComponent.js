@@ -10,6 +10,7 @@ const GameComponent = ({ questions }) => {
 	const [questionIndex, setQuestionIndex] = useState(0)
 	const [answers, setAnswers] = useState([])
 	const [score, setScore] = useState(0)
+	const [nextButton, setNextButton] = useState(false)
 
 	useEffect(() => {
 		setCurrentQuestion(questions[questionIndex])
@@ -36,6 +37,7 @@ const GameComponent = ({ questions }) => {
 
 	const updateCurrentQuestion = () => {
 		if (questionIndex !== questions.length -1) {
+			setNextButton(!nextButton)
 			updateQuestionIndex()
 			setCurrentQuestion(questions[questionIndex])
 			groupAnswers()
@@ -49,7 +51,7 @@ const GameComponent = ({ questions }) => {
 		if (answer === currentQuestion.correct_answer) {
 			setScore(score + 1) 
 		}
-		updateCurrentQuestion()
+		setNextButton(!nextButton)
 	}
 
 	const endQuiz = () => {
@@ -68,6 +70,11 @@ return (
 				<main className="answers-grid">
 					{answerButtons}
 				</main>
+				{nextButton && 
+					<div className="next-btn-container">
+						<ButtonComponent text="Next Question" handleClick={updateCurrentQuestion}/>
+					</div>
+				}
 			</div>
 		}
 	</>
