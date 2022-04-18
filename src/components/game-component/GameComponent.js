@@ -9,6 +9,7 @@ const GameComponent = ({ questions }) => {
 	const [currentQuestion, setCurrentQuestion] = useState(null)
 	const [questionIndex, setQuestionIndex] = useState(0)
 	const [answers, setAnswers] = useState([])
+	const [score, setScore] = useState(0)
 
 	useEffect(() => {
 		setCurrentQuestion(questions[questionIndex])
@@ -18,11 +19,9 @@ const GameComponent = ({ questions }) => {
 	},[currentQuestion, questionIndex])
 
 	const updateQuestionIndex = () => {
-		
 		if (questionIndex < questions.length - 1) {
 			setQuestionIndex(questionIndex + 1)
 		}
-		console.log(questionIndex)
 	}
 
 	const groupAnswers = () => {
@@ -46,11 +45,18 @@ const GameComponent = ({ questions }) => {
 		}
 	}
 
-	const endQuiz = () => {
-		console.log('quiz finished')
+	const handleQuestionAnswer = (answer) => {
+		if (answer === currentQuestion.correct_answer) {
+			setScore(score + 1) 
+		}
+		updateCurrentQuestion()
 	}
 
-	const answerButtons = answers !== [] && answers.map((answer, index) => <ButtonComponent key={index} text={answer} handleClick={updateCurrentQuestion}/>)
+	const endQuiz = () => {
+		console.log('you scored' + score)
+	}
+
+	const answerButtons = answers !== [] && answers.map((answer, index) => <ButtonComponent key={index} text={answer} handleClick={() => handleQuestionAnswer(answer)}/>)
 
 return (
 	<>
