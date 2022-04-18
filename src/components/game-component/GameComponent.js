@@ -6,7 +6,7 @@ import LoadingSpinner from '../loading-spinner/LoadingSpinner'
 
 const GameComponent = (props) => {
 
-	const [currentQuestion, setCurrentQuestion] = useState()
+	const [currentQuestion, setCurrentQuestion] = useState(null)
 	const [questionIndex, setQuestionIndex] = useState(0)
 	const [answers, setAnswers] = useState([])
 
@@ -21,9 +21,8 @@ const GameComponent = (props) => {
 		console.log(questionIndex)
 	}
 
-	const updateAnswers = () => {
+	const groupAnswers = () => {
 		let answersArray = []
-		
 		currentQuestion.incorrect_answers.forEach(incorrect_answer => {
 			answersArray.push(incorrect_answer)
 		});
@@ -34,7 +33,7 @@ const GameComponent = (props) => {
 
 	console.log(currentQuestion)
 
-	const answerButtons = currentQuestion && currentQuestion.incorrect_answers.map((answer) => <ButtonComponent text={answer} handleClick={updateAnswers}/>)
+	const answerButtons = currentQuestion && currentQuestion.incorrect_answers.map((answer) => <ButtonComponent text={answer} handleClick={groupAnswers}/>)
 
 return (
 	<div className="game-component">
@@ -43,6 +42,7 @@ return (
 		<h1 className="question">{currentQuestion && currentQuestion.question}</h1>
 		<main className="answers-grid">
 			{answerButtons}
+			{console.log(answers)}
 		</main>
 	</div>
 )
