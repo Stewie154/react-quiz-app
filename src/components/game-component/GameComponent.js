@@ -43,7 +43,7 @@ return (
 		{!currentQuestion && <LoadingSpinner />}
 		{currentQuestion &&
 			<div className="game-component">
-				<h1></h1>
+				<h1>Question {questionIndex + 1} / {questions.length}</h1>
 				<h1 className="question">{currentQuestion && currentQuestion.question}</h1>
 				<main className="answers-grid">
 					{answerButtons}
