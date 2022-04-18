@@ -36,12 +36,19 @@ const GameComponent = ({ questions }) => {
 	}
 
 	const updateCurrentQuestion = () => {
-		updateQuestionIndex()
-		setCurrentQuestion(questions[questionIndex])
-		groupAnswers()
+		if (questionIndex !== questions.length -1) {
+			updateQuestionIndex()
+			setCurrentQuestion(questions[questionIndex])
+			groupAnswers()
+		}
+		else {
+			endQuiz()
+		}
 	}
 
-	// console.log(questions)
+	const endQuiz = () => {
+		console.log('quiz finished')
+	}
 
 	const answerButtons = answers !== [] && answers.map((answer, index) => <ButtonComponent key={index} text={answer} handleClick={updateCurrentQuestion}/>)
 
