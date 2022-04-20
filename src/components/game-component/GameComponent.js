@@ -3,6 +3,7 @@ import './GameComponent.scss'
 
 import ButtonComponent from '../button-component/ButtonComponent'
 import LoadingSpinner from '../loading-spinner/LoadingSpinner'
+import EndOfGameComponent from '../end-of-game-component/EndOfGameComponent'
 
 const GameComponent = ({ questions }) => {
 
@@ -12,6 +13,7 @@ const GameComponent = ({ questions }) => {
 	const [score, setScore] = useState(0)
 	const [nextButton, setNextButton] = useState(false)
 	const [answeredCorrectly, setAnsweredCorrectly] = useState(true)
+	const [endGameScreen, setEndGameScreen] = useState(false)
 
 	useEffect(() => {
 		setCurrentQuestion(questions[questionIndex])
@@ -73,6 +75,7 @@ const GameComponent = ({ questions }) => {
 
 	const endQuiz = () => {
 		console.log('you scored' + score)
+		setEndGameScreen(true)
 	}
 
 	const answerButtons = answers !== [] && answers.map((answer, index) => <ButtonComponent disabled={nextButton} key={index} text={answer} handleClick={() => handleQuestionAnswer(answer)}/>)
@@ -92,6 +95,7 @@ return (
 						<ButtonComponent classes="next-btn" text="Next Question" handleClick={updateCurrentQuestion}/>
 					</div>
 				}
+				{endGameScreen && <EndOfGameComponent score={score} questionsLength={questions.length}/>}
 			</div>
 		}
 	</>
