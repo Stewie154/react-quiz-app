@@ -52,13 +52,14 @@ const GameComponent = ({ questions }) => {
 			setScore(score + 1) 
 		}
 		setNextButton(!nextButton)
+		console.log(score)
 	}
 
 	const endQuiz = () => {
 		console.log('you scored' + score)
 	}
 
-	const answerButtons = answers !== [] && answers.map((answer, index) => <ButtonComponent key={index} text={answer} handleClick={() => handleQuestionAnswer(answer)}/>)
+	const answerButtons = answers !== [] && answers.map((answer, index) => <ButtonComponent disabled={nextButton} key={index} text={answer} handleClick={() => handleQuestionAnswer(answer)}/>)
 
 return (
 	<>
@@ -72,7 +73,7 @@ return (
 				</main>
 				{nextButton && 
 					<div className="next-btn-container">
-						<ButtonComponent classes="red " text="Next Question" handleClick={updateCurrentQuestion}/>
+						<ButtonComponent classes="" text="Next Question" handleClick={updateCurrentQuestion}/>
 					</div>
 				}
 			</div>
