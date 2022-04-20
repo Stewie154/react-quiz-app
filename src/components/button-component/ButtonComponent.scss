@@ -13,9 +13,17 @@
 	font-size: 2rem;
 	transition: 0.3s ease-in-out;
 
-	&:hover {
+	&:hover:enabled {
 		color: $color-black;
 		background-color: $color-primary-2;
+	}
+
+	&:disabled {
+		opacity: 0.8;
+		cursor: not-allowed;
+		:hover {
+			background-color: $color-primary-2;
+		}
 	}
 }
 
