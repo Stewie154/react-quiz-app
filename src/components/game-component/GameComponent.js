@@ -11,6 +11,7 @@ const GameComponent = ({ questions }) => {
 	const [answers, setAnswers] = useState([])
 	const [score, setScore] = useState(0)
 	const [nextButton, setNextButton] = useState(false)
+	const [answeredCorrectly, setAnsweredCorrectly] = useState(true)
 
 	useEffect(() => {
 		setCurrentQuestion(questions[questionIndex])
@@ -49,10 +50,25 @@ const GameComponent = ({ questions }) => {
 
 	const handleQuestionAnswer = (answer) => {
 		if (answer === currentQuestion.correct_answer) {
+			setAnsweredCorrectly(true)
 			setScore(score + 1) 
 		}
+		else {
+			setAnsweredCorrectly(false)
+		}
+		
 		setNextButton(!nextButton)
-		console.log(score)
+	}
+
+	const getColorFeedback = () => {
+		if (answeredCorrectly === true) {
+			return 'correct'
+		}
+		if (answeredCorrectly === false) {
+			return 'incorrect'
+		}
+		else return ''
+		
 	}
 
 	const endQuiz = () => {
@@ -60,12 +76,12 @@ const GameComponent = ({ questions }) => {
 	}
 
 	const answerButtons = answers !== [] && answers.map((answer, index) => <ButtonComponent disabled={nextButton} key={index} text={answer} handleClick={() => handleQuestionAnswer(answer)}/>)
-
+	console.log(currentQuestion)
 return (
 	<>
 		{!currentQuestion && <LoadingSpinner />}
 		{currentQuestion &&
-			<div className="game-component">
+			<div className={`game-component ${nextButton && getColorFeedback()}`}>
 				<h1 className="number-display">Question {questionIndex + 1} / {questions.length}</h1>
 				<h2 className="question">{currentQuestion && currentQuestion.question}</h2>
 				<main className="answers-grid">
