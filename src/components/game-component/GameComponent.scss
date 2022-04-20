@@ -31,3 +31,11 @@
 		max-width: 100%;
 	}
 }
+
+.correct {
+	background-color: $color-green;
+}
+
+.incorrect {
+	background-color: $color-red;
+}
