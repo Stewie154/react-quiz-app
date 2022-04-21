@@ -11,7 +11,7 @@
 	border: 1px solid $color-black;
 	border-radius: 25px;
 	font-size: 2rem;
-	transition: 0.3s ease-in-out;
+	transition: 0.3s ease-in;
 
 	&:hover:enabled {
 		color: $color-black;
@@ -31,4 +31,12 @@
 	background-color: $next-btn-color;
 	color: $color-black;
 	opacity: 1;
+}
+
+.correct {
+	background-color: $color-green;
+}
+
+.incorrect {
+	background-color: $color-red;
 }

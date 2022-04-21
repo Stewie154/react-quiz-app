@@ -78,7 +78,17 @@ const GameComponent = ({ questions }) => {
 		setEndGameScreen(true)
 	}
 
-	const answerButtons = answers !== [] && answers.map((answer, index) => <ButtonComponent disabled={nextButton} key={index} text={answer} handleClick={() => handleQuestionAnswer(answer)}/>)
+	const answerButtons = answers !== [] && answers.map((answer, index) => {
+		let uiFeedbackClass = answer === currentQuestion.correct_answer ? 'correct' : 'incorrect'
+		return (
+			<ButtonComponent 
+				disabled={nextButton} 
+				key={index} text={answer} 
+				handleClick={() => handleQuestionAnswer(answer)}
+				classes={nextButton && uiFeedbackClass}
+			/>
+		)
+	})
 	console.log(currentQuestion)
 return (
 	<>
