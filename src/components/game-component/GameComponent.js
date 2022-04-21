@@ -74,7 +74,6 @@ const GameComponent = ({ questions }) => {
 	}
 
 	const endQuiz = () => {
-		console.log('you scored' + score)
 		setEndGameScreen(true)
 	}
 
@@ -94,7 +93,7 @@ return (
 	<>
 		{!currentQuestion && <LoadingSpinner />}
 		{currentQuestion &&
-			<div className={`game-component ${nextButton && getColorFeedback()}`}>
+			<div className={`game-component ${nextButton && getColorFeedback()} ${endGameScreen && 'hidden'}`}>
 				<h1 className="number-display">Question {questionIndex + 1} / {questions.length}</h1>
 				<h2 className="question">{currentQuestion && currentQuestion.question}</h2>
 				<main className="answers-grid">
@@ -105,9 +104,9 @@ return (
 						<ButtonComponent classes="next-btn" text="Next Question" handleClick={updateCurrentQuestion}/>
 					</div>
 				}
-				{endGameScreen && <EndOfGameComponent score={score} questionsLength={questions.length}/>}
 			</div>
 		}
+		{endGameScreen && <EndOfGameComponent score={score} questionsLength={questions.length}/>}
 	</>
 	
 )
