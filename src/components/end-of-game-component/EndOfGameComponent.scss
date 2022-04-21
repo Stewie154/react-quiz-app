@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+
+.end-of-game-component {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 100%;
+
+	h1 {
+		text-align: center;
+	}
+}
