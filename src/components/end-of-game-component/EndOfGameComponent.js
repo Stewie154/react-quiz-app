@@ -53,7 +53,7 @@ const EndOfGameComponent = ({score, questionsLength, resetGame}) => {
 			<h1>You scored {score} / {questionsLength}</h1>
 			<img className="result-image" src={getResult(score, questionsLength).image} />
 			<h3>{getResult(score, questionsLength).text}</h3>
-			<div className="play-again-container">
+			<div className="main-btn-container">
 				<ButtonComponent text="Play again" handleClick={() => resetGame()} />
 			</div>
 		</div>

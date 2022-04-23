@@ -100,7 +100,7 @@ return (
 					{answerButtons}
 				</main>
 				{nextButton && 
-					<div className="next-btn-container">
+					<div className="main-btn-container">
 						<ButtonComponent classes="next-btn" text="Next Question" handleClick={updateCurrentQuestion}/>
 					</div>
 				}

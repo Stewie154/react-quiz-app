@@ -30,5 +30,10 @@
 		border: 5px solid $color-black;
 		border-radius: 20px;	
 		overflow-y: scroll;	
+
+		.main-btn-container {
+			width: 350px;
+			max-width: 100%;
+		}
 	}
 }

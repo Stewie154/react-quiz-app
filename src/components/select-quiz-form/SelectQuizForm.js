@@ -110,7 +110,7 @@ const SelectQuizForm = (props) => {
 						<option value="boolean">True / False</option>
 					</select>
 				</div>
-				<div className="form-group">
+				<div className="form-group main-btn-container">
 					<ButtonComponent submitBtn text="Start Quiz"/>
 				</div>
 
