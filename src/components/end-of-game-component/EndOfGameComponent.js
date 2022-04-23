@@ -1,5 +1,6 @@
 import React from 'react'
 import './EndOfGameComponent.scss'
+import ButtonComponent from '../button-component/ButtonComponent'
 
 const EndOfGameComponent = ({score, questionsLength}) => {
 	const images = {
@@ -52,6 +53,7 @@ const EndOfGameComponent = ({score, questionsLength}) => {
 			<h1>You scored {score} / {questionsLength}</h1>
 			<img className="result-image" src={getResult(score, questionsLength).image} />
 			<h3>{getResult(score, questionsLength).text}</h3>
+			<ButtonComponent text="Play again" handleClick={() => console.log('play again')} />
 		</div>
 	)
 }
