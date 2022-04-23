@@ -6,7 +6,7 @@ const WelcomeComponent = (props) => {
 	return (
 		<div className="welcome-component">
 			<h3 className="greeting-message">Welcome!</h3>
-			<div className="start-btn-container">
+			<div className="main-btn-container">
 				<ButtonComponent text="Select Quiz" handleClick={props.selectQuizClick}/>
 			</div>
 		</div>
