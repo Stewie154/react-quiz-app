@@ -7,9 +7,9 @@
 	align-items: center;
 	min-height: 100%;
 	color: $color-black;
+	text-align: center;
 
 	h1 {
-		text-align: center;
 		font-size: 2.2rem;
 		@media (min-width: 500px) {
 			font-size: 3rem;
