@@ -6,14 +6,18 @@ const EndOfGameComponent = ({score, questionsLength}) => {
 		winner: [
 			'images/winner.gif',
 			'images/good.gif',
+			'images/winner-3.gif',
+			'images/winner-4.gif',
 		],
 		notBad: [
 			'images/not-bad.gif',
 			'images/not-bad-2.gif'
 		],
 		loser: [
+			'images/loser.gif',
 			'images/loser-2.gif',
-			'images/loser.gif'
+			'images/loser-3.gif',
+			'images/loser-4.gif'
 		]
 	}
 
@@ -36,7 +40,7 @@ const EndOfGameComponent = ({score, questionsLength}) => {
 			result.image = images.loser[Math.floor(Math.random() * images.loser.length)]
 			result.text = 'Um...thanks for playing!'
 		}
-		console.log(result.image + 'd')
+		console.log(result.image + 'dsssssassaffsaa')
 		return result
 	}
 
