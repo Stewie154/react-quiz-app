@@ -53,7 +53,9 @@ const EndOfGameComponent = ({score, questionsLength}) => {
 			<h1>You scored {score} / {questionsLength}</h1>
 			<img className="result-image" src={getResult(score, questionsLength).image} />
 			<h3>{getResult(score, questionsLength).text}</h3>
-			<ButtonComponent text="Play again" handleClick={() => console.log('play again')} />
+			<div className="play-again-container">
+				<ButtonComponent text="Play again" handleClick={() => console.log('play again')} />
+			</div>
 		</div>
 	)
 }
