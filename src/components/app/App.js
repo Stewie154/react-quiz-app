@@ -44,6 +44,13 @@ const App = () => {
 		setUserResubmitting(!userResubmitting)
 	}
 
+	const resetGame = () => {
+		console.log('game reset')
+		setGameOn(false)
+		setIsLoading(false)
+		setSelectingQuiz(true)
+	}
+
 
 
 	return (
@@ -69,7 +76,7 @@ const App = () => {
 					/>
 				}
 				{isLoading && <LoadingSpinner />}
-				{gameOn && <GameComponent questions={questionsData}/>}
+				{gameOn && <GameComponent questions={questionsData} resetGame={resetGame}/>}
 			</div>
 		</div>
 		

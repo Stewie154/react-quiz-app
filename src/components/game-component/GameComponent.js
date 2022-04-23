@@ -5,7 +5,7 @@ import ButtonComponent from '../button-component/ButtonComponent'
 import LoadingSpinner from '../loading-spinner/LoadingSpinner'
 import EndOfGameComponent from '../end-of-game-component/EndOfGameComponent'
 
-const GameComponent = ({ questions }) => {
+const GameComponent = ({ questions, resetGame}) => {
 
 	const [currentQuestion, setCurrentQuestion] = useState(null)
 	const [questionIndex, setQuestionIndex] = useState(0)
@@ -106,7 +106,7 @@ return (
 				}
 			</div>
 		}
-		{endGameScreen && <EndOfGameComponent score={score} questionsLength={questions.length}/>}
+		{endGameScreen && <EndOfGameComponent score={score} questionsLength={questions.length} resetGame={resetGame}/>}
 	</>
 	
 )

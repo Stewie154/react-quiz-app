@@ -2,7 +2,7 @@ import React from 'react'
 import './EndOfGameComponent.scss'
 import ButtonComponent from '../button-component/ButtonComponent'
 
-const EndOfGameComponent = ({score, questionsLength}) => {
+const EndOfGameComponent = ({score, questionsLength, resetGame}) => {
 	const images = {
 		winner: [
 			'images/winner.gif',
@@ -54,7 +54,7 @@ const EndOfGameComponent = ({score, questionsLength}) => {
 			<img className="result-image" src={getResult(score, questionsLength).image} />
 			<h3>{getResult(score, questionsLength).text}</h3>
 			<div className="play-again-container">
-				<ButtonComponent text="Play again" handleClick={() => console.log('play again')} />
+				<ButtonComponent text="Play again" handleClick={() => resetGame()} />
 			</div>
 		</div>
 	)
