@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './GameComponent.scss'
+import DOMPurify from 'dompurify'
 
 import ButtonComponent from '../button-component/ButtonComponent'
 import LoadingSpinner from '../loading-spinner/LoadingSpinner'
@@ -77,25 +78,35 @@ const GameComponent = ({ questions, resetGame}) => {
 		setEndGameScreen(true)
 	}
 
+	const sanitizedData = (d) => ({
+		__html: DOMPurify.sanitize(d)
+	  })
+
+	const renderHTML = (rawHTML) => React.createElement("div", { dangerouslySetInnerHTML: { __html: rawHTML } });
+
 	const answerButtons = answers !== [] && answers.map((answer, index) => {
 		let uiFeedbackClass = answer === currentQuestion.correct_answer ? 'correct' : 'incorrect'
 		return (
 			<ButtonComponent 
 				disabled={nextButton} 
-				key={index} text={answer} 
+				key={index} 
+				text={renderHTML(sanitizedData(answer).__html)} 
 				handleClick={() => handleQuestionAnswer(answer)}
 				classes={nextButton && uiFeedbackClass}
 			/>
 		)
 	})
 	console.log(currentQuestion)
+	
+	
+
 return (
 	<>
 		{!currentQuestion && <LoadingSpinner />}
 		{currentQuestion &&
 			<div className={`game-component ${nextButton && getColorFeedback()} ${endGameScreen && 'hidden'}`}>
 				<h1 className="number-display">Question {questionIndex + 1} / {questions.length}</h1>
-				<h2 className="question">{currentQuestion && currentQuestion.question}</h2>
+				<h2 className="question">{currentQuestion && renderHTML(sanitizedData(currentQuestion.question).__html)}</h2>
 				<main className="answers-grid">
 					{answerButtons}
 				</main>
