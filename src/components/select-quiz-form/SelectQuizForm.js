@@ -10,7 +10,6 @@ const SelectQuizForm = (props) => {
 	useEffect(() => {
 		if(submittedQuizInfo) {
 			retrieveQuiz()
-			console.log(props.sessionToken)
 		}
 
 	},[submittedQuizInfo])

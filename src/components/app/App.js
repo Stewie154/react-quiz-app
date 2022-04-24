@@ -23,12 +23,7 @@ const App = () => {
 	useEffect(() => {
 		if (sessionToken === '') {
 			saveToken()
-			console.log('token retrieved')
 		}
-		else {
-			console.log('didnt retrieve again!')
-		}
-		console.log(sessionToken)
 	}, [])
 
 
@@ -44,6 +39,9 @@ const App = () => {
 			.then(res => {
 				if (res.response_code == 0) {
 					setSessionToken(res.token)
+				}
+				else {
+					setSessionToken('error')
 				}
 			})
 	}
@@ -69,7 +67,6 @@ const App = () => {
 	}
 
 	const resetGame = () => {
-		console.log('game reset')
 		setGameOn(false)
 		setIsLoading(false)
 		setSelectingQuiz(true)
