@@ -11,7 +11,7 @@
 	
 	const response = await axios.get(url)
 	if (response.data.response_code === 0) {
-		return response.data.results
+		return response.data
 	}
 	else {
 		return response.data.response_code
