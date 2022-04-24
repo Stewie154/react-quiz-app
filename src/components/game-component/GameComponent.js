@@ -95,11 +95,8 @@ const GameComponent = ({ questions, resetGame}) => {
 				classes={nextButton && uiFeedbackClass}
 			/>
 		)
-	})
-	console.log(currentQuestion)
+	})	
 	
-	
-
 return (
 	<>
 		{!currentQuestion && <LoadingSpinner />}
