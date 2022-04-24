@@ -6,11 +6,11 @@ import ButtonComponent from '../button-component/ButtonComponent'
 const SelectQuizForm = (props) => {
 
 	const [submittedQuizInfo, setSubmittedQuizInfo] = useState(null)
-
+	
 	useEffect(() => {
-
 		if(submittedQuizInfo) {
 			retrieveQuiz()
+			console.log(props.sessionToken)
 		}
 
 	},[submittedQuizInfo])
@@ -28,10 +28,12 @@ const SelectQuizForm = (props) => {
 		
 	}
 
+
+
 	const retrieveQuiz = async () => {
 		props.toggleQuizSelection()
 		props.toggleIsLoading()
-		await questionsApiCall(submittedQuizInfo)
+		await questionsApiCall(submittedQuizInfo, props.sessionToken)
 			.then(res => {
 				if(res === 1) {
 					props.toggleUserResubmitting()

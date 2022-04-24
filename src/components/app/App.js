@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import './App.scss'
 import '../../styles/global.scss'
 
+import getSessionToken from '../../api/getSessionToken'
+
 import WelcomeComponent from '../welcome-component/WelcomeComponent'
 import SelectQuizForm from '../select-quiz-form/SelectQuizForm'
 import LoadingSpinner from '../loading-spinner/LoadingSpinner'
@@ -15,6 +17,19 @@ const App = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [questionsData, setQuestionsData] = useState([])
 	const [gameOn, setGameOn] = useState(false)
+	const [sessionToken, setSessionToken] = useState('')
+
+
+	useEffect(() => {
+		if (sessionToken === '') {
+			saveToken()
+			console.log('token retrieved')
+		}
+		else {
+			console.log('didnt retrieve again!')
+		}
+		console.log(sessionToken)
+	}, [])
 
 
 	useEffect(() => {
@@ -23,6 +38,15 @@ const App = () => {
 		}
 		
 	}, [gameOn, userResubmitting])
+
+	const saveToken = async () => {
+		await getSessionToken()
+			.then(res => {
+				if (res.response_code == 0) {
+					setSessionToken(res.token)
+				}
+			})
+	}
 
 	const startGame = (questions) => {
 		setQuestionsData(questions)
@@ -65,6 +89,7 @@ const App = () => {
 						toggleIsLoading={toggleIsLoading}
 						startGame={startGame}
 						toggleUserResubmitting={toggleUserResubmitting}
+						sessionToken={sessionToken}
 					/>
 				}
 				{userResubmitting && 
