@@ -33,7 +33,11 @@
 
 		.main-btn-container {
 			width: 350px;
-			max-width: 100%;
+			max-width: 90%;
+			padding: 2rem 0;
+			@media (min-width: $md) {
+				padding: 0;
+			}
 		}
 	}
 }
