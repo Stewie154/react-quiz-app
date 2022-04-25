@@ -10,8 +10,14 @@
 	padding: 0.5rem 1.3rem;
 	border: 1px solid $color-black;
 	border-radius: 25px;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	transition: 0.3s ease-in;
+	@media (min-width: $sm) {
+		font-size: 1.8rem;
+	}
+	@media (min-width: $md) {
+		font-size: 2rem;
+	}
 
 	&:hover:enabled {
 		color: $color-black;
