@@ -34,7 +34,6 @@ const SelectQuizForm = (props) => {
 		props.toggleIsLoading()
 		await questionsApiCall(submittedQuizInfo, props.sessionToken)
 			.then(res => {
-				console.log(res)
 				if(res.response_code === 0) {
 					props.startGame(res.results)
 				}

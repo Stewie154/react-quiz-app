@@ -28,7 +28,6 @@ const EndOfGameComponent = ({score, questionsLength, resetGame}) => {
 			image: '',
 			text: ''
 		}
-		console.log(percentage)
 		if (percentage >= 80) {
 			result.image =  images.winner[Math.floor(Math.random() * images.winner.length)]
 			result.text = 'Fantastic!'
@@ -41,7 +40,6 @@ const EndOfGameComponent = ({score, questionsLength, resetGame}) => {
 			result.image = images.loser[Math.floor(Math.random() * images.loser.length)]
 			result.text = 'Um...thanks for playing!'
 		}
-		console.log(result.image + 'dsssssassaffsaa')
 		return result
 	}
 
