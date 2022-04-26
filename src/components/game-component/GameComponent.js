@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './GameComponent.scss'
 import DOMPurify from 'dompurify'
-import Roll from 'react-reveal/Roll';
+import Fade from 'react-reveal/Fade';
 
 import ButtonComponent from '../button-component/ButtonComponent'
 import LoadingSpinner from '../loading-spinner/LoadingSpinner'
@@ -88,7 +88,7 @@ const GameComponent = ({ questions, resetGame}) => {
 	const answerButtons = answers !== [] && answers.map((answer, index) => {
 		let uiFeedbackClass = answer === currentQuestion.correct_answer ? 'correct' : 'incorrect'
 		return (
-			<Roll left>
+			<Fade left>
 				<ButtonComponent 
 					disabled={nextButton} 
 					key={index} 
@@ -96,7 +96,7 @@ const GameComponent = ({ questions, resetGame}) => {
 					handleClick={() => handleQuestionAnswer(answer)}
 					classes={nextButton && uiFeedbackClass}
 				/>
-			</Roll>
+			</Fade>
 		)
 	})	
 	
@@ -106,7 +106,9 @@ return (
 		{currentQuestion &&
 			<div className={`game-component ${nextButton && getColorFeedback()} ${endGameScreen && 'hidden'}`}>
 				<h1 className="number-display">Question {questionIndex + 1} / {questions.length}</h1>
-				<h2 className="question">{currentQuestion && renderHTML(sanitizedData(currentQuestion.question).__html)}</h2>
+				<Fade right>
+					<h2 className="question">{currentQuestion && renderHTML(sanitizedData(currentQuestion.question).__html)}</h2>
+				</Fade>
 				<main className="answers-grid">
 					{answerButtons}
 				</main>
