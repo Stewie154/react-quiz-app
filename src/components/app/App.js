@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import './App.scss'
 import '../../styles/global.scss'
+import Fade from 'react-reveal/Fade';
 
 import getSessionToken from '../../api/getSessionToken'
 
@@ -75,32 +76,35 @@ const App = () => {
 
 
 	return (
-		<div className="wrapper">
-			<h1 className="main-title">Quick Quiz</h1>
-			<div className='app-container'>
-				{welcomeScreen  && <WelcomeComponent  selectQuizClick={toggleQuizSelection}/>}
-				{selectingQuiz && 
-					<SelectQuizForm 
-						toggleQuizSelection={toggleQuizSelection} 
-						isLoading={isLoading}
-						toggleIsLoading={toggleIsLoading}
-						startGame={startGame}
-						toggleUserResubmitting={toggleUserResubmitting}
-						sessionToken={sessionToken}
-					/>
-				}
-				{userResubmitting && 
-					<ResubmitComponent 
-						toggleQuizSelection={toggleQuizSelection} 
-						toggleUserResubmitting={toggleUserResubmitting}
-						startGame={startGame}
-						toggleIsLoading={toggleIsLoading}
-					/>
-				}
-				{isLoading && <LoadingSpinner />}
-				{gameOn && <GameComponent questions={questionsData} resetGame={resetGame}/>}
+		<Fade up>
+			<div className="wrapper">
+				<h1 className="main-title">Quick Quiz</h1>
+				<div className='app-container'>
+					{welcomeScreen  && <WelcomeComponent  selectQuizClick={toggleQuizSelection}/>}
+					{selectingQuiz && 
+						<SelectQuizForm 
+							toggleQuizSelection={toggleQuizSelection} 
+							isLoading={isLoading}
+							toggleIsLoading={toggleIsLoading}
+							startGame={startGame}
+							toggleUserResubmitting={toggleUserResubmitting}
+							sessionToken={sessionToken}
+						/>
+					}
+					{userResubmitting && 
+						<ResubmitComponent 
+							toggleQuizSelection={toggleQuizSelection} 
+							toggleUserResubmitting={toggleUserResubmitting}
+							startGame={startGame}
+							toggleIsLoading={toggleIsLoading}
+						/>
+					}
+					{isLoading && <LoadingSpinner />}
+					{gameOn && <GameComponent questions={questionsData} resetGame={resetGame}/>}
+				</div>
 			</div>
-		</div>
+		</Fade>
+		
 		
 	)
 }
