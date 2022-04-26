@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './GameComponent.scss'
 import DOMPurify from 'dompurify'
+import Roll from 'react-reveal/Roll';
 
 import ButtonComponent from '../button-component/ButtonComponent'
 import LoadingSpinner from '../loading-spinner/LoadingSpinner'
@@ -87,13 +88,15 @@ const GameComponent = ({ questions, resetGame}) => {
 	const answerButtons = answers !== [] && answers.map((answer, index) => {
 		let uiFeedbackClass = answer === currentQuestion.correct_answer ? 'correct' : 'incorrect'
 		return (
-			<ButtonComponent 
-				disabled={nextButton} 
-				key={index} 
-				text={renderHTML(sanitizedData(answer).__html)} 
-				handleClick={() => handleQuestionAnswer(answer)}
-				classes={nextButton && uiFeedbackClass}
-			/>
+			<Roll left>
+				<ButtonComponent 
+					disabled={nextButton} 
+					key={index} 
+					text={renderHTML(sanitizedData(answer).__html)} 
+					handleClick={() => handleQuestionAnswer(answer)}
+					classes={nextButton && uiFeedbackClass}
+				/>
+			</Roll>
 		)
 	})	
 	

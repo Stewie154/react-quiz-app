@@ -1,5 +1,6 @@
 import React from 'react'
 import './ButtonComponent.scss'
+import Fade from 'react-reveal/Fade';
 
 const ButtonComponent = (props) => {
 	const renderButton = () => {
@@ -17,7 +18,9 @@ const ButtonComponent = (props) => {
 	}
 	return (
 		<>
-			{renderButton()}
+			<Fade>
+				{renderButton()}
+			</Fade>
 		</>
 	)
 }
