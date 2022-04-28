@@ -79,7 +79,7 @@ const App = () => {
 		<Fade up>
 			<div className="wrapper">
 				<h1 className="main-title">Quick Quiz</h1>
-				<div className='app-container'>
+				<div className='app-container' style={{padding: gameOn ? '0' : '20px'}}>
 					{welcomeScreen  && <WelcomeComponent  selectQuizClick={toggleQuizSelection}/>}
 					{selectingQuiz && 
 						<SelectQuizForm 
