@@ -88,15 +88,13 @@ const GameComponent = ({ questions, resetGame}) => {
 	const answerButtons = answers !== [] && answers.map((answer, index) => {
 		let uiFeedbackClass = answer === currentQuestion.correct_answer ? 'correct' : 'incorrect'
 		return (
-			<Fade left>
-				<ButtonComponent 
-					disabled={nextButton} 
-					key={index} 
-					text={renderHTML(sanitizedData(answer).__html)} 
-					handleClick={() => handleQuestionAnswer(answer)}
-					classes={nextButton && uiFeedbackClass}
-				/>
-			</Fade>
+			<ButtonComponent 
+				disabled={nextButton} 
+				key={index} 
+				text={renderHTML(sanitizedData(answer).__html)} 
+				handleClick={() => handleQuestionAnswer(answer)}
+				classes={nextButton && uiFeedbackClass}
+			/>
 		)
 	})	
 	
@@ -106,12 +104,14 @@ return (
 		{currentQuestion &&
 			<div className={`game-component ${nextButton && getColorFeedback()} ${endGameScreen && 'hidden'}`}>
 				<h1 className="number-display">Question {questionIndex + 1} / {questions.length}</h1>
-				<Fade right>
+				<Fade down>
 					<h2 className="question">{currentQuestion && renderHTML(sanitizedData(currentQuestion.question).__html)}</h2>
 				</Fade>
-				<main className="answers-grid">
-					{answerButtons}
-				</main>
+				<Fade up>
+					<main className="answers-grid">
+						{answerButtons}
+					</main>
+				</Fade>
 				{nextButton && 
 					<div className="main-btn-container">
 						<ButtonComponent classes="next-btn" text="Next Question" handleClick={updateCurrentQuestion}/>

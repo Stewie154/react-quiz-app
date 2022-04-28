@@ -1,6 +1,8 @@
 import React from 'react'
 import './EndOfGameComponent.scss'
 import ButtonComponent from '../button-component/ButtonComponent'
+import Fade from 'react-reveal/Fade';
+
 
 const EndOfGameComponent = ({score, questionsLength, resetGame}) => {
 	const images = {
@@ -48,12 +50,17 @@ const EndOfGameComponent = ({score, questionsLength, resetGame}) => {
 
 	return (
 		<div className="end-of-game-component">
-			<h1>You scored {score} / {questionsLength}</h1>
-			<img className="result-image" src={getResult(score, questionsLength).image} />
-			<h3>{getResult(score, questionsLength).text}</h3>
-			<div className="main-btn-container">
-				<ButtonComponent text="Play again" handleClick={() => resetGame()} />
-			</div>
+			<Fade down>
+				<h1>You scored {score} / {questionsLength}</h1>
+				<img className="result-image" src={getResult(score, questionsLength).image} />
+			</Fade>
+			
+			<Fade up>
+				<h3>{getResult(score, questionsLength).text}</h3>
+				<div className="main-btn-container">
+					<ButtonComponent text="Play again" handleClick={() => resetGame()} />
+				</div>
+			</Fade>
 		</div>
 	)
 }

@@ -47,10 +47,10 @@ const SelectQuizForm = (props) => {
 
 	return (
 		<>
-			<Fade left>
+			<Fade down>
 				<h3 className="header">Quiz Selection</h3>
 			</Fade>
-			<Fade right>
+			<Fade up>
 				<form onSubmit={(event) => handleSubmission(event)}>
 					<div className="form-group">
 						<label>Number of Questions:</label>
