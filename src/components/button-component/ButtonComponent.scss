@@ -11,7 +11,7 @@
 	border: 1px solid $color-black;
 	border-radius: 25px;
 	font-size: 1.5rem;
-	transition: 0.3s ease-in;
+	transition: 0.2s ease-in;
 	@media (min-width: $sm) {
 		font-size: 1.8rem;
 	}
@@ -34,8 +34,8 @@
 }
 
 .next-btn {
-	background-color: $next-btn-color;
-	color: $color-black;
+	background-color: $color-primary-1;
+	color: $color-white;
 	opacity: 1;
 }
 
